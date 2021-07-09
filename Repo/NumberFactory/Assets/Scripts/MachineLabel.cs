@@ -7,6 +7,8 @@ public class MachineLabel : MonoBehaviour
     public string label_text;
     public GameObject go;
     public Camera cam;
+    public float x_offset = -4f;
+    public float y_offset = 40f;
 
     void OnGUI()
     {
@@ -14,6 +16,6 @@ public class MachineLabel : MonoBehaviour
 
         Debug.Log("TEXT = "+label_text+ " POSITION = "+screen_coord.x+", "+screen_coord.y);
 
-        GUI.Label(new Rect(screen_coord.x-4f, screen_coord.y+40f, 100, 100), label_text);
+        GUI.Label(new Rect(screen_coord.x-x_offset, screen_coord.y+y_offset, 100, 100), label_text);
     }
 }
