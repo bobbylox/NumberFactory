@@ -157,7 +157,7 @@ MonoBehaviour:
   go: {fileID: 42099291}
   cam: {fileID: 519420031}
   x_offset: 4
-  y_offset: 179.9
+  y_offset: -10
 --- !u!212 &42099293
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -217,7 +217,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42099291}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3600001, y: -1.84, z: -0.23}
+  m_LocalPosition: {x: -1.2, y: -1.99, z: -0.23}
   m_LocalScale: {x: 1, y: 0.5607, z: 1}
   m_Children:
   - {fileID: 830328292}
@@ -258,8 +258,8 @@ MonoBehaviour:
   label_text: I
   go: {fileID: 194599737}
   cam: {fileID: 519420031}
-  x_offset: 0.85
-  y_offset: 179.9
+  x_offset: 4
+  y_offset: -10
 --- !u!212 &194599739
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -319,7 +319,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194599737}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.58, y: -1.84, z: -0.23}
+  m_LocalPosition: {x: -4.58, y: -2, z: -0.23}
   m_LocalScale: {x: 1, y: 0.5607, z: 1}
   m_Children:
   - {fileID: 1852585635}
@@ -359,8 +359,8 @@ MonoBehaviour:
   label_text: x
   go: {fileID: 275767708}
   cam: {fileID: 519420031}
-  x_offset: 2.8
-  y_offset: 179.9
+  x_offset: 4
+  y_offset: -10
 --- !u!212 &275767710
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -461,8 +461,8 @@ MonoBehaviour:
   label_text: '-'
   go: {fileID: 434286094}
   cam: {fileID: 519420031}
-  x_offset: 3
-  y_offset: 179.9
+  x_offset: 4
+  y_offset: -10
 --- !u!212 &434286097
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -806,11 +806,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf1e8b6fd12d479f9a0f6760982b460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  label_text: 
+  label_text: D
   go: {fileID: 585042276}
   cam: {fileID: 519420031}
-  x_offset: 0.85
-  y_offset: 179.9
+  x_offset: 4
+  y_offset: -10
 --- !u!212 &585042278
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -870,7 +870,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585042276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.01, y: -1.84, z: -0.23}
+  m_LocalPosition: {x: -2.93, y: -1.99, z: -0.23}
   m_LocalScale: {x: 1, y: 0.5607, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -909,8 +909,8 @@ MonoBehaviour:
   label_text: "\xF72"
   go: {fileID: 590189681}
   cam: {fileID: 519420031}
-  x_offset: 6
-  y_offset: 179.9
+  x_offset: 4
+  y_offset: -10
 --- !u!212 &590189683
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1474,7 +1474,7 @@ MonoBehaviour:
   go: {fileID: 1437917957}
   cam: {fileID: 519420031}
   x_offset: 4
-  y_offset: 179.9
+  y_offset: -10
 --- !u!212 &1437917959
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2014,8 +2014,8 @@ MonoBehaviour:
   label_text: '[^]'
   go: {fileID: 1732759959}
   cam: {fileID: 519420031}
-  x_offset: 5
-  y_offset: 179.9
+  x_offset: 4
+  y_offset: -10
 --- !u!212 &1732759961
 SpriteRenderer:
   m_ObjectHideFlags: 0
