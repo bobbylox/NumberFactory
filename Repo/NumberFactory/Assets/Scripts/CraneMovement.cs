@@ -13,11 +13,18 @@ public class CraneMovement : MonoBehaviour
     public float column_distance = 2.0f;
     float speed = 0.2f;
     float target;
+
+    GameObject[] columns;
+    int currentColumn;
+    MachineManagerScript manager;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = GetComponent<MachineManagerScript>();
+        columns = manager.columns;
+
+        currentColumn = manager.getNearestMachine(transform.position);
     }
 
     // Update is called once per frame
@@ -26,6 +33,7 @@ public class CraneMovement : MonoBehaviour
         if (Input.GetKeyDown("right"))
         {
             moving_right = true;
+            //target = columns[currentColumn+1].transform.position.x;
             target = transform.position.x + column_distance;
         }
 

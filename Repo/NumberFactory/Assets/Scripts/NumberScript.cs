@@ -8,6 +8,8 @@ public class NumberScript : MonoBehaviour
     public Camera cam;
     GameObject go;
 
+    int myColumn = 0; // -1 means it's being held by the crane
+
     void Start()
     {
         go = transform.gameObject;
