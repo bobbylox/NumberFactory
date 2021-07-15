@@ -8,7 +8,7 @@ public class CraneMovement : MonoBehaviour
 
     bool moving_right;
     bool moving_left;
-    bool moving_up;
+    //bool moving_up;
     bool moving_down;
     public float column_distance = 2.0f;
     float speed = 0.2f;
@@ -33,8 +33,8 @@ public class CraneMovement : MonoBehaviour
         if (Input.GetKeyDown("right"))
         {
             moving_right = true;
-            //target = columns[currentColumn+1].transform.position.x;
-            target = transform.position.x + column_distance;
+            target = columns[currentColumn++].transform.position.x;
+            //target = transform.position.x + column_distance;
         }
 
 
@@ -55,7 +55,8 @@ public class CraneMovement : MonoBehaviour
         if (Input.GetKeyDown("left"))
         {
             moving_left = true;
-            target = transform.position.x - column_distance;
+            target = columns[currentColumn--].transform.position.x;
+            //target = transform.position.x - column_distance;
         }
 
 
@@ -76,8 +77,7 @@ public class CraneMovement : MonoBehaviour
         if (Input.GetKeyDown("down"))
         {
             moving_down = true;
-            target = transform.position.y - column_distance;
-            moving_up = true;
+            target = columns[currentColumn--].transform.position.y;
 
         }
 
@@ -88,7 +88,6 @@ public class CraneMovement : MonoBehaviour
             if (transform.position.y > target)
             {
                 transform.Translate(new Vector3(0, Time.deltaTime * -speed, 0));
-                //transform.Translate(new Vector3(0, Time.deltaTime * speed, 0));
             }
             else
             {
