@@ -15,7 +15,7 @@ public class MachineLabel : MonoBehaviour
         Vector3 pos = new Vector3(go.transform.position.x, -go.transform.position.y, go.transform.position.z);
         Vector3 screen_coord = cam.WorldToScreenPoint(pos);
 
-        Debug.Log("TEXT = "+label_text+ " POSITION = "+screen_coord.x+", "+screen_coord.y);
+        //Debug.Log("TEXT = "+label_text+ " POSITION = "+screen_coord.x+", "+screen_coord.y);
 
         GUI.Label(new Rect(screen_coord.x-x_offset, screen_coord.y+y_offset, 100, 100), label_text);
     }

@@ -10,8 +10,7 @@ public class CraneMovement : MonoBehaviour
     bool moving_left;
     //bool moving_up;
     bool moving_down;
-    public float column_distance = 2.0f;
-    float speed = 0.2f;
+    public float speed = 0.2f;
     float target;
 
     GameObject[] columns;
@@ -30,10 +29,15 @@ public class CraneMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("right"))
+        if (Input.GetKeyDown("right") && !moving_down && !moving_left && !moving_right)
         {
-            moving_right = true;
-            target = columns[currentColumn++].transform.position.x;
+            Debug.Log("RIGHT "+ currentColumn);
+            if(currentColumn < columns.Length - 1)
+            {
+                moving_right = true;
+                target = columns[currentColumn++].transform.position.x;
+            }
+            
             //target = transform.position.x + column_distance;
         }
 
@@ -48,15 +52,21 @@ public class CraneMovement : MonoBehaviour
             else
             {
                 moving_right = false;
+                currentColumn = currentColumn++;
             }
         }
 
 
-        if (Input.GetKeyDown("left"))
+        if (Input.GetKeyDown("left") && !moving_down && !moving_left && !moving_right)
         {
-            moving_left = true;
-            target = columns[currentColumn--].transform.position.x;
-            //target = transform.position.x - column_distance;
+            Debug.Log("LEFT "+currentColumn);
+            if (currentColumn > 0)
+            {
+                moving_left = true;
+                target = columns[currentColumn--].transform.position.x;
+                //target = transform.position.x - column_distance;
+            }
+
         }
 
 
@@ -70,14 +80,15 @@ public class CraneMovement : MonoBehaviour
             else
             {
                 moving_left = false;
+                currentColumn = currentColumn--;
             }
         }
 
 
-        if (Input.GetKeyDown("down"))
+        if (Input.GetKeyDown("down") && !moving_down && !moving_left && !moving_right)
         {
             moving_down = true;
-            target = columns[currentColumn--].transform.position.y;
+            target = columns[currentColumn].transform.position.y;
 
         }
 
