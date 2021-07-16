@@ -11,8 +11,8 @@ public class MachineScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        slots = new List<Transform>();
-        inputs = new List<NumberScript>();
+        //slots = new List<Transform>();
+        //inputs = new List<NumberScript>();
         
     }
 
@@ -24,6 +24,8 @@ public class MachineScript : MonoBehaviour
 
     public Transform CanInsert()
     {
+        Debug.Log("Inputs=" +inputs.Count+" Slots="+slots.Count);
+
         if(inputs.Count < slots.Count)
         {
             return slots[inputs.Count];

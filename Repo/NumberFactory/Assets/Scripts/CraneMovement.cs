@@ -1,15 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 
 public class CraneMovement : MonoBehaviour
 {
-
-    bool moving_right;
-    bool moving_left;
-    //bool moving_up;
-    bool moving_down;
+    Tween movement;
     public float speed = 0.2f;
     float target;
 
@@ -20,93 +16,58 @@ public class CraneMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DOTween.Init();
+
         manager = GetComponent<MachineManagerScript>();
         columns = manager.columns;
 
         currentColumn = manager.getNearestMachine(transform.position);
+        Debug.Log("CURRENT COLUMN = "+currentColumn);
+
+        movement = transform.DOMove(transform.position, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("right") && !moving_down && !moving_left && !moving_right)
+        if (Input.GetKeyDown("right") && !movement.IsActive())//!moving_down && !moving_left && !moving_right)
         {
-            Debug.Log("RIGHT "+ currentColumn);
-            if(currentColumn < columns.Length - 1)
+            Debug.Log("RIGHT to "+ (currentColumn+1));
+            if (currentColumn < columns.Length-1)
             {
-                moving_right = true;
-                target = columns[currentColumn++].transform.position.x;
-            }
-            
-            //target = transform.position.x + column_distance;
-        }
-
-
-
-        if (moving_right)
-        {
-            if (transform.position.x < target)
-            {
-                transform.Translate(new Vector3(Time.deltaTime * speed, 0,0));
-            }
-            else
-            {
-                moving_right = false;
-                currentColumn = currentColumn++;
+                currentColumn = currentColumn + 1;
+                target = columns[currentColumn].transform.position.x;
+                movement = transform.DOMoveX(target, speed);
             }
         }
 
-
-        if (Input.GetKeyDown("left") && !moving_down && !moving_left && !moving_right)
+        if (Input.GetKeyDown("left") && !movement.IsActive())
         {
-            Debug.Log("LEFT "+currentColumn);
+            Debug.Log("LEFT to "+(currentColumn-1));
             if (currentColumn > 0)
             {
-                moving_left = true;
-                target = columns[currentColumn--].transform.position.x;
-                //target = transform.position.x - column_distance;
+                currentColumn = currentColumn - 1;
+                target = columns[currentColumn].transform.position.x;
+                movement = transform.DOMoveX(target, speed);
             }
 
         }
 
 
-
-        if (moving_left)
+        if (Input.GetKeyDown("down") && !movement.IsActive())
         {
-            if (transform.position.x > target)
+            GameObject currentMachine = columns[currentColumn];
+            MachineScript currentMachineScript = currentMachine.GetComponent<MachineScript>();
+            //Debug.Log("MACHINECSRIPTNULL?? "+currentMachineScript);
+            Transform slot = currentMachineScript.CanInsert();
+
+            if (slot)
             {
-                transform.Translate(new Vector3(Time.deltaTime * -speed, 0, 0));
-            }
-            else
-            {
-                moving_left = false;
-                currentColumn = currentColumn--;
-            }
-        }
-
-
-        if (Input.GetKeyDown("down") && !moving_down && !moving_left && !moving_right)
-        {
-            moving_down = true;
-            target = columns[currentColumn].transform.position.y;
-
-        }
-
-
-
-        if (moving_down)
-        {
-            if (transform.position.y > target)
-            {
-                transform.Translate(new Vector3(0, Time.deltaTime * -speed, 0));
-            }
-            else
-            {
-                moving_down = false;
+                target = slot.position.y;
+                float startY = transform.position.y;
+                movement = transform.DOMoveY(target, speed);//.DOMoveY(startY, speed);
             }
         }
-
-
 
     }
 }
