@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MachineManagerScript : MonoBehaviour
 {
-
     public GameObject[] columns;
     // Start is called before the first frame update
     void Start()

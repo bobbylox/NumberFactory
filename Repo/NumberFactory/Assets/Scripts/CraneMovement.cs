@@ -12,6 +12,7 @@ public class CraneMovement : MonoBehaviour
     GameObject[] columns;
     int currentColumn;
     MachineManagerScript manager;
+    public NumberScript holding;
     
     // Start is called before the first frame update
     void Start()
@@ -59,13 +60,36 @@ public class CraneMovement : MonoBehaviour
             GameObject currentMachine = columns[currentColumn];
             MachineScript currentMachineScript = currentMachine.GetComponent<MachineScript>();
             //Debug.Log("MACHINECSRIPTNULL?? "+currentMachineScript);
-            Transform slot = currentMachineScript.CanInsert();
+            bool dropoff = false;
+            Transform slot;
+            if (holding)
+            {
+                slot = currentMachineScript.CanInsert();
+                dropoff = true;
+            }
+            else
+            {
+                slot = currentMachineScript.CanRemove().transform;
+            }
 
-            if (slot)
+            if (dropoff && slot) //putting down a number into an empty slot
             {
                 target = slot.position.y;
                 float startY = transform.position.y;
                 movement = transform.DOMoveY(target, speed);//.DOMoveY(startY, speed);
+                movement.OnComplete(() => { currentMachineScript.Insert(holding); movement = transform.DOMoveY(startY, speed); });
+            }
+            else if( slot ) { //picking up a number from a slot
+                target = slot.position.y;
+                float startY = transform.position.y;
+                movement = transform.DOMoveY(target, speed);//.DOMoveY(startY, speed);
+
+                //get the number
+                movement.OnComplete(() => { holding = currentMachineScript.Remove(transform); movement = transform.DOMoveY(startY, speed); });
+            }
+            else //no number held, no number in slot
+            {
+
             }
         }
 

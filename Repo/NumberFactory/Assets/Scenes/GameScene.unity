@@ -443,7 +443,8 @@ MonoBehaviour:
   slots:
   - {fileID: 1852585635}
   - {fileID: 1915350668}
-  inputs: []
+  inputs:
+  - {fileID: 1440212122}
 --- !u!1 &275767708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,6 +1544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  holding: {fileID: 0}
 --- !u!114 &932500864
 MonoBehaviour:
   m_ObjectHideFlags: 0
