@@ -60,7 +60,7 @@ public class CraneMovement : MonoBehaviour
             //Debug.Log("MACHINECSRIPTNULL?? "+currentMachineScript);
             bool dropoff = false;
             Transform slot;
-            Debug.Log(dropoff);
+            
             if (holding)
             {
                 slot = currentMachineScript.CanInsert();
@@ -70,13 +70,17 @@ public class CraneMovement : MonoBehaviour
             {
                 slot = currentMachineScript.CanRemove().transform;
             }
-
+            Debug.Log("Dropping off? "+dropoff);
             if (dropoff && slot) //putting down a number into an empty slot
             {
                 target = slot.position.y;
                 float startY = transform.position.y;
                 movement = transform.DOMoveY(target, speed);//.DOMoveY(startY, speed);
-                movement.OnComplete(() => { currentMachineScript.Insert(holding); movement = transform.DOMoveY(startY, speed); });
+                movement.OnComplete(() => {
+                    currentMachineScript.Insert(holding);
+                    holding = null;
+                    movement = transform.DOMoveY(startY, speed);
+                });
             }
             else if( slot ) { //picking up a number from a slot
                 target = slot.position.y;

@@ -24,7 +24,7 @@ public class MachineScript : MonoBehaviour
 
     public Transform CanInsert()
     {
-        Debug.Log("Inputs=" +inputs.Count+" Slots="+slots.Count);
+        Debug.Log("Inputs=" +inputs.Count);
 
         if(inputs.Count < slots.Count)
         {
@@ -42,9 +42,8 @@ public class MachineScript : MonoBehaviour
         //reparent the number
         Transform numTransform = num.transform;
         numTransform.SetParent(this.transform);
-        numTransform.localPosition = Vector3.zero;
+        numTransform.localPosition = slots[inputs.Count - 1].transform.localPosition;
         //set new local coords
-        numTransform = slots[inputs.Count - 1].transform;
 
         Debug.Log("POS = " + numTransform.localPosition);
 
@@ -59,7 +58,8 @@ public class MachineScript : MonoBehaviour
         if(inputs.Count > 0)
         {
             return inputs[inputs.Count-1];
-        }Debug.Log(inputs.Count);
+        }
+        Debug.Log("Inputs= "+inputs.Count);
         return null;
     }
 
