@@ -59,7 +59,7 @@ public class MachineScript : MonoBehaviour
         if(inputs.Count > 0)
         {
             return inputs[inputs.Count-1];
-        }
+        }Debug.Log(inputs.Count);
         return null;
     }
 

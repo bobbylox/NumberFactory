@@ -21,10 +21,8 @@ public class CraneMovement : MonoBehaviour
 
         manager = GetComponent<MachineManagerScript>();
         columns = manager.columns;
-
         currentColumn = manager.getNearestMachine(transform.position);
         Debug.Log("CURRENT COLUMN = "+currentColumn);
-
         movement = transform.DOMove(transform.position, 0);
     }
 
@@ -62,6 +60,7 @@ public class CraneMovement : MonoBehaviour
             //Debug.Log("MACHINECSRIPTNULL?? "+currentMachineScript);
             bool dropoff = false;
             Transform slot;
+            Debug.Log(dropoff);
             if (holding)
             {
                 slot = currentMachineScript.CanInsert();
