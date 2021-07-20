@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MachineScript : MonoBehaviour
 {
     [SerializeField]
     public List<Transform> slots;
     public List<NumberScript> inputs;
+    public UnityEvent purpose;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +26,7 @@ public class MachineScript : MonoBehaviour
 
     public Transform CanInsert()
     {
-        Debug.Log("Inputs=" +inputs.Count);
+        //Debug.Log("Inputs=" +inputs.Count);
 
         if(inputs.Count < slots.Count)
         {
@@ -45,11 +47,13 @@ public class MachineScript : MonoBehaviour
         numTransform.localPosition = slots[inputs.Count - 1].transform.localPosition;
         //set new local coords
 
-        Debug.Log("POS = " + numTransform.localPosition);
+        //Debug.Log("POS = " + numTransform.localPosition);
 
         if(inputs.Count == slots.Count)
         {
             //Do the thing the machine does
+            Debug.Log("Attempting to Invoke purpose");
+            purpose.Invoke();
         }
     }
 
@@ -59,7 +63,7 @@ public class MachineScript : MonoBehaviour
         {
             return inputs[inputs.Count-1];
         }
-        Debug.Log("Inputs= "+inputs.Count);
+        //Debug.Log("Inputs= "+inputs.Count);
         return null;
     }
 

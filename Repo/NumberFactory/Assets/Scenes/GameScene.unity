@@ -300,7 +300,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42099291}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: -2, z: -0.23}
+  m_LocalPosition: {x: -2.9899998, y: -2.09, z: -0.23}
   m_LocalScale: {x: 1, y: 0.5607, z: 1}
   m_Children:
   - {fileID: 830328292}
@@ -324,6 +324,9 @@ MonoBehaviour:
   - {fileID: 830328292}
   - {fileID: 1632780863}
   inputs: []
+  purpose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &194599737
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,7 +422,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194599737}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: -2, z: -0.23}
+  m_LocalPosition: {x: -6.99, y: -2.09, z: -0.23}
   m_LocalScale: {x: 1, y: 0.5607, z: 1}
   m_Children:
   - {fileID: 1852585635}
@@ -445,6 +448,21 @@ MonoBehaviour:
   - {fileID: 1915350668}
   inputs:
   - {fileID: 1440212122}
+  purpose:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1437917962}
+        m_TargetAssemblyTypeName: OutputMachineScript, Assembly-CSharp
+        m_MethodName: EndLevelIfMatch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &275767708
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,7 +558,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275767708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: -2, z: -0.23}
+  m_LocalPosition: {x: 1.0100002, y: -2.09, z: -0.23}
   m_LocalScale: {x: 1, y: 0.5607, z: 1}
   m_Children:
   - {fileID: 2076335516}
@@ -564,6 +582,9 @@ MonoBehaviour:
   - {fileID: 2076335516}
   - {fileID: 1411065817}
   inputs: []
+  purpose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &434286094
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,6 +619,9 @@ MonoBehaviour:
   slots:
   - {fileID: 1615571333}
   inputs: []
+  purpose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &434286096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,7 +698,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434286094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -2, z: -0.03}
+  m_LocalPosition: {x: -0.9899998, y: -2.09, z: -0.03}
   m_LocalScale: {x: 1, y: 0.5607, z: 1}
   m_Children:
   - {fileID: 1615571333}
@@ -1023,7 +1047,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585042276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: -2, z: -0.23}
+  m_LocalPosition: {x: -4.99, y: -2.09, z: -0.23}
   m_LocalScale: {x: 1, y: 0.5607, z: 1}
   m_Children:
   - {fileID: 33478118}
@@ -1045,6 +1069,9 @@ MonoBehaviour:
   slots:
   - {fileID: 33478118}
   inputs: []
+  purpose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &590189681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,7 +1167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590189681}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: -2, z: -0.23}
+  m_LocalPosition: {x: 3.0100002, y: -2.09, z: -0.23}
   m_LocalScale: {x: 1, y: 0.5607, z: 1}
   m_Children:
   - {fileID: 761181575}
@@ -1162,6 +1189,9 @@ MonoBehaviour:
   slots:
   - {fileID: 761181575}
   inputs: []
+  purpose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &705505756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,7 +1555,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932500860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.03, y: 3.51, z: 0}
+  m_LocalPosition: {x: -3.0199997, y: 3.42, z: 0}
   m_LocalScale: {x: 0.47307125, y: 0.47307125, z: 0.47307125}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1660,6 +1690,7 @@ GameObject:
   - component: {fileID: 1437917959}
   - component: {fileID: 1437917958}
   - component: {fileID: 1437917961}
+  - component: {fileID: 1437917962}
   m_Layer: 0
   m_Name: Output Machine
   m_TagString: Untagged
@@ -1743,7 +1774,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437917957}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9, y: -2, z: -0.23}
+  m_LocalPosition: {x: 7.01, y: -2.09, z: -0.23}
   m_LocalScale: {x: 1, y: 0.5607, z: 1}
   m_Children:
   - {fileID: 557659019}
@@ -1765,6 +1796,35 @@ MonoBehaviour:
   slots:
   - {fileID: 557659019}
   inputs: []
+  purpose:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1437917962}
+        m_TargetAssemblyTypeName: OutputMachineScript, Assembly-CSharp
+        m_MethodName: EndLevelIfMatch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1437917962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437917957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c19a0a7f37ef3440da3637dec2487d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expecting: 5
+  machine: {fileID: 1437917961}
 --- !u!1 &1440212121
 GameObject:
   m_ObjectHideFlags: 0
@@ -2300,7 +2360,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1732759959}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: -2, z: -0.23}
+  m_LocalPosition: {x: 5.01, y: -2.09, z: -0.23}
   m_LocalScale: {x: 1, y: 0.5607, z: 1}
   m_Children:
   - {fileID: 534736896}
@@ -2322,6 +2382,9 @@ MonoBehaviour:
   slots:
   - {fileID: 534736896}
   inputs: []
+  purpose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1852585634
 GameObject:
   m_ObjectHideFlags: 0
