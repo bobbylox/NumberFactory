@@ -31,7 +31,7 @@ public class CraneMovement : MonoBehaviour
     {
         if (Input.GetKeyDown("right") && !movement.IsActive())//!moving_down && !moving_left && !moving_right)
         {
-            Debug.Log("RIGHT to "+ (currentColumn+1));
+            //Debug.Log("RIGHT to "+ (currentColumn+1));
             if (currentColumn < columns.Length-1)
             {
                 currentColumn = currentColumn + 1;
@@ -42,7 +42,7 @@ public class CraneMovement : MonoBehaviour
 
         if (Input.GetKeyDown("left") && !movement.IsActive())
         {
-            Debug.Log("LEFT to "+(currentColumn-1));
+            //Debug.Log("LEFT to "+(currentColumn-1));
             if (currentColumn > 0)
             {
                 currentColumn = currentColumn - 1;
@@ -68,9 +68,10 @@ public class CraneMovement : MonoBehaviour
             }
             else
             {
+                //Debug.Log("CurrentMachineScript "+currentMachineScript);
                 slot = currentMachineScript.CanRemove().transform;
             }
-            Debug.Log("Dropping off? "+dropoff);
+            //Debug.Log("Dropping off? "+dropoff);
             if (dropoff && slot) //putting down a number into an empty slot
             {
                 target = slot.position.y;

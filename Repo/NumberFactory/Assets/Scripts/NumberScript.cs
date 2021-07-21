@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class NumberScript : MonoBehaviour
 {
-    public float number;
+    public int number;
     public Camera cam;
     int myColumn = 0; // -1 means it's being held by the crane
+    Vector3 startScale;
 
     void Start()
     {
-
+        startScale = transform.localScale;
     }
 
     void OnGUI()
@@ -21,5 +22,10 @@ public class NumberScript : MonoBehaviour
         GUI.Label(new Rect(screen_coord.x, screen_coord.y, 50, 50), ""+number);
 
         //""+5 -> "5"
+    }
+
+    public Vector3 GetStartScale()
+    {
+        return startScale;
     }
 }
