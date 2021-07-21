@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NumberScript : MonoBehaviour
 {
-    public int number;
+    public float number;
     public Camera cam;
     int myColumn = 0; // -1 means it's being held by the crane
 
