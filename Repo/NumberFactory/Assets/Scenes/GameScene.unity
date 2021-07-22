@@ -327,6 +327,7 @@ MonoBehaviour:
   purpose:
     m_PersistentCalls:
       m_Calls: []
+  crane: {fileID: 932500863}
 --- !u!1 &194599737
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,6 +464,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  crane: {fileID: 932500863}
 --- !u!1 &275767708
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,6 +587,7 @@ MonoBehaviour:
   purpose:
     m_PersistentCalls:
       m_Calls: []
+  crane: {fileID: 932500863}
 --- !u!1 &336044611
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,6 +735,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  crane: {fileID: 932500863}
 --- !u!114 &434286096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1087,6 +1091,7 @@ GameObject:
   - component: {fileID: 585042278}
   - component: {fileID: 585042277}
   - component: {fileID: 585042280}
+  - component: {fileID: 585042281}
   m_Layer: 0
   m_Name: Duplicate Machine
   m_TagString: Untagged
@@ -1194,7 +1199,33 @@ MonoBehaviour:
   inputs: []
   purpose:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 585042281}
+        m_TargetAssemblyTypeName: DuplicateMachineScript, Assembly-CSharp
+        m_MethodName: Duplicate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  crane: {fileID: 932500863}
+--- !u!114 &585042281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585042276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac0dfd48ddab46f6b0e390b0922b4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  machine: {fileID: 585042280}
 --- !u!1 &590189681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1328,6 +1359,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  crane: {fileID: 932500863}
 --- !u!114 &590189686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1341,8 +1373,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   machine: {fileID: 590189685}
-  Number: {fileID: 0}
-  NumberTemplate: {fileID: 0}
 --- !u!1 &705505756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,7 +1821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5d3c1f7bb6b44e18408f79825d9f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 6
+  number: 7
   cam: {fileID: 519420031}
 --- !u!212 &1243946361
 SpriteRenderer:
@@ -2059,6 +2089,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  crane: {fileID: 932500863}
 --- !u!114 &1437917962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2536,6 +2567,7 @@ MonoBehaviour:
   purpose:
     m_PersistentCalls:
       m_Calls: []
+  crane: {fileID: 932500863}
 --- !u!1 &1852585634
 GameObject:
   m_ObjectHideFlags: 0

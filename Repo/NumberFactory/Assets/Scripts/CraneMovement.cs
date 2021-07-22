@@ -78,8 +78,9 @@ public class CraneMovement : MonoBehaviour
                 float startY = transform.position.y;
                 movement = transform.DOMoveY(target, speed);//.DOMoveY(startY, speed);
                 movement.OnComplete(() => {
+                    //using this temp allows the machine to change what we're holding
+                    //NumberScript tempHolding = holding;
                     currentMachineScript.Insert(holding);
-                    holding = null;
                     movement = transform.DOMoveY(startY, speed);
                 });
             }

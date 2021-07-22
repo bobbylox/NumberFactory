@@ -9,6 +9,7 @@ public class MachineScript : MonoBehaviour
     public List<Transform> slots;
     public List<NumberScript> inputs;
     public UnityEvent purpose;
+    public CraneMovement crane;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,8 @@ public class MachineScript : MonoBehaviour
 
     public void Insert(NumberScript num)
     {
+        crane.holding = null;
+
         inputs.Add(num);
         //reparent the number
         Transform numTransform = num.transform;
