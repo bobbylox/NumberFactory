@@ -1,26 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class DivisionMachineScript : MonoBehaviour
 {
 
     [SerializeField]
     public MachineScript machine;
-    public NumberScript Number;
-    public Transform NumberTemplate;
+    NumberScript number;
+   
 
     public void Divide()
     {
         if(machine.inputs.Count > 0)
         {
-         //   Instantiate(NumberTemplate, new Vector3((transform.position.x, -transform.position.y, transform.position.z)));
-            Number = machine.inputs[0];
-            Mathf.Floor(Number.number / 2);
 
-            Debug.Log("Divide");
+            number = machine.inputs[0];
+            int newNumber = (int)number.number /2;
+            number.transform.DOScale(0f, 0.5f).OnComplete(SwapNumber);
+            Debug.Log("Division");
+
+            
 
         }
 
+         void SwapNumber()
+        {
+            Debug.Log("DEBUG " + number.number + ", ");
+            number.number = (int)number.number / 2;
+            number.transform.DOScale(number.GetStartScale(), 0.5f);
+        }
     }
 }
+
