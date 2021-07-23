@@ -33,7 +33,8 @@ public class MutiplicationMachineScript : MonoBehaviour
         Debug.Log("DEBUG " + number.number + ", ");
         number.number = newNumber;
         number.transform.DOScale(number.GetStartScale(), 0.5f);
-        Destroy(machine.inputs[1].gameObject);
+        machine.inputs.Remove(number2);
+        Destroy(number2.gameObject);
     }
 }
 
