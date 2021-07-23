@@ -13,6 +13,8 @@ public class CraneMovement : MonoBehaviour
     int currentColumn;
     MachineManagerScript manager;
     public NumberScript holding;
+
+    public SequenceScript sequence;
     
     // Start is called before the first frame update
     void Start()
@@ -77,12 +79,15 @@ public class CraneMovement : MonoBehaviour
                 target = slot.position.y;
                 float startY = transform.position.y;
                 movement = transform.DOMoveY(target, speed);//.DOMoveY(startY, speed);
-                movement.OnComplete(() => {
+                movement.OnComplete(() =>
+                {
                     //using this temp allows the machine to change what we're holding
                     //NumberScript tempHolding = holding;
                     currentMachineScript.Insert(holding);
                     movement = transform.DOMoveY(startY, speed);
                 });
+
+                sequence.AddStep(currentMachineScript.gameObject.GetComponent<MachineLabel>());
             }
             else if( slot ) { //picking up a number from a slot
                 target = slot.position.y;
@@ -91,6 +96,7 @@ public class CraneMovement : MonoBehaviour
 
                 //get the number
                 movement.OnComplete(() => { holding = currentMachineScript.Remove(transform); movement = transform.DOMoveY(startY, speed); });
+                sequence.AddStep(currentMachineScript.gameObject.GetComponent<MachineLabel>());
             }
             else //no number held, no number in slot
             {
