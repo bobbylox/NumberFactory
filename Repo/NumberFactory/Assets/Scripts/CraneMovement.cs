@@ -57,6 +57,10 @@ public class CraneMovement : MonoBehaviour
 
         if (Input.GetKeyDown("down") && !movement.IsActive())
         {
+            if (!sequence.CheckLimit()) {//check we're not over limit
+                return;
+            }
+
             GameObject currentMachine = columns[currentColumn];
             MachineScript currentMachineScript = currentMachine.GetComponent<MachineScript>();
             //Debug.Log("MACHINECSRIPTNULL?? "+currentMachineScript);
