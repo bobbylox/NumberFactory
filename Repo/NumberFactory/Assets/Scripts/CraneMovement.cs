@@ -75,7 +75,14 @@ public class CraneMovement : MonoBehaviour
             else
             {
                 //Debug.Log("CurrentMachineScript "+currentMachineScript);
-                slot = currentMachineScript.CanRemove().transform;
+                if (currentMachineScript.CanRemove())
+                {
+                    slot = currentMachineScript.CanRemove().transform;
+                }
+                else
+                {
+                    slot = null;
+                }
             }
             //Debug.Log("Dropping off? "+dropoff);
             if (dropoff && slot) //putting down a number into an empty slot

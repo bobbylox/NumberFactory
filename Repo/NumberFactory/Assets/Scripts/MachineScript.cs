@@ -10,12 +10,14 @@ public class MachineScript : MonoBehaviour
     public List<NumberScript> inputs;
     public UnityEvent purpose;
     public CraneMovement crane;
+    RepeatMachine rm;
 
     // Start is called before the first frame update
     void Start()
     {
         //slots = new List<Transform>();
         //inputs = new List<NumberScript>();
+        rm = gameObject.GetComponent<RepeatMachine>();
         
     }
 
@@ -55,8 +57,12 @@ public class MachineScript : MonoBehaviour
         if(inputs.Count == slots.Count)
         {
             //Do the thing the machine does
-            Debug.Log("Attempting to Invoke purpose");
-            purpose.Invoke();
+            //Debug.Log("Attempting to Invoke purpose");
+            if (!rm)
+            {
+                purpose.Invoke();
+            }
+            
         }
     }
 
@@ -70,15 +76,22 @@ public class MachineScript : MonoBehaviour
         return null;
     }
 
-    public NumberScript Remove(Transform crane)
+    public NumberScript Remove(Transform craneTransform)
     {
         NumberScript num = CanRemove();
         if (num)
         {
             Transform numTransform = num.transform;
 
+            if (rm) // this is the repeat machine
+            {
+                purpose.Invoke();
+                crane.holding = null;
+                return null;
+            }
+
             //reparent the number to the crane
-            numTransform.SetParent(crane);
+            numTransform.SetParent(craneTransform);
 
             //set the new local coordinates of the number
             numTransform.localPosition = new Vector3(0, -0.2f, 0);

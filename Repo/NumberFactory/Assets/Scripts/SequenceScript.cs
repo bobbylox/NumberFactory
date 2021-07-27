@@ -25,16 +25,25 @@ public class SequenceScript : MonoBehaviour
 
     public void AddStep(MachineLabel machine)
     {
-        if (machine.label_text == "[ ]")
+        if (machine.label_text == "[ ]" && crane.holding)
         {
             machineSteps.Add(machine);
-            MachineScript machineScript = machine.gameObject.GetComponent<MachineScript>();
+            //MachineScript machineScript = machine.gameObject.GetComponent<MachineScript>();
             stepsString = stepsString + crane.holding.number + "[   ";
         }
-        else
+        else if(machine.label_text != "[ ]")
         {
             machineSteps.Add(machine);
             stepsString = stepsString + machine.label_text + "   ";
+        }
+    }
+
+    public void CloseRepeat(MachineLabel machine)
+    {
+        if (machine.label_text == "[ ]")
+        {
+            machineSteps.Add(machine);
+            stepsString = stepsString + "]   ";
         }
     }
 

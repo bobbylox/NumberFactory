@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class RepeatMachine : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public MachineScript machine;
+    public SequenceScript sequence;
+    MachineLabel label;
+
     void Start()
     {
-        
+        label = gameObject.GetComponent<MachineLabel>();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void Repeat()
     {
-        
+        sequence.CloseRepeat(label);
+
     }
 }
