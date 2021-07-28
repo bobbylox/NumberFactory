@@ -2259,6 +2259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   expecting: 5
   machine: {fileID: 1437917961}
+  cam: {fileID: 519420031}
 --- !u!1 &1451153981
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,7 +2304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   machineSteps: []
-  limit: 10
+  limit: 99999
   crane: {fileID: 932500863}
   cam: {fileID: 519420031}
 --- !u!1 &1615571332
@@ -2797,6 +2798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   machine: {fileID: 1732759963}
   sequence: {fileID: 1451153983}
+  crane: {fileID: 0}
 --- !u!1 &1852585634
 GameObject:
   m_ObjectHideFlags: 0

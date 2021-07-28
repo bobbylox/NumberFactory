@@ -7,6 +7,7 @@ public class OutputMachineScript : MonoBehaviour
     [SerializeField]
     public int expecting;
     public MachineScript machine;
+    public Camera cam;
 
     public void EndLevelIfMatch()
     {
@@ -15,5 +16,16 @@ public class OutputMachineScript : MonoBehaviour
         {
             Debug.Log("YOU WIN!");
         }
+    }
+
+    void OnGUI()
+    {
+        Transform tr = machine.slots[0];
+        Vector3 pos = new Vector3(tr.position.x, -tr.position.y, tr.position.z);
+        Vector3 screen_coord = cam.WorldToScreenPoint(pos);
+
+        //Debug.Log("TEXT = "+label_text+ " POSITION = "+screen_coord.x+", "+screen_coord.y);
+
+        GUI.Label(new Rect(screen_coord.x-4, screen_coord.y-10, 100, 100), ""+expecting);
     }
 }

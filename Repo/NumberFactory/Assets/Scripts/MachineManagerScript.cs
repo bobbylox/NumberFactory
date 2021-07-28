@@ -36,4 +36,31 @@ public class MachineManagerScript : MonoBehaviour
 
         return closestColumn;
     }
+
+    public int GetDirection(MachineLabel label, int currentColumn)
+    {
+        MachineLabel tempLabel;
+
+        for(int i = 0; i<columns.Length; i++)
+        {
+            GameObject go = columns[i];
+            tempLabel = go.GetComponent<MachineLabel>();
+            if(tempLabel == label)
+            {
+                if (i < currentColumn)
+                {
+                    return -1;
+                }
+                else if(i == currentColumn)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+        }
+        return int.MaxValue;
+    }
 }

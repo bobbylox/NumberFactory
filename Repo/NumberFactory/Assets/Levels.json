@@ -1,0 +1,12 @@
+﻿{
+    "currentLevel": 0,
+    "levels": [
+        {
+            "number": 0,
+            "machines": [ "I", "O" ],
+            "inputs": [ 1 ],
+            "output": 1,
+            "sequenceLimit": 2
+        }
+    ]
+}

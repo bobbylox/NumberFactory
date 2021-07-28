@@ -33,87 +33,124 @@ public class CraneMovement : MonoBehaviour
     {
         if (Input.GetKeyDown("right") && !movement.IsActive())//!moving_down && !moving_left && !moving_right)
         {
-            //Debug.Log("RIGHT to "+ (currentColumn+1));
-            if (currentColumn < columns.Length-1)
-            {
-                currentColumn = currentColumn + 1;
-                target = columns[currentColumn].transform.position.x;
-                movement = transform.DOMoveX(target, speed);
-            }
+            Right();
         }
 
         if (Input.GetKeyDown("left") && !movement.IsActive())
         {
-            //Debug.Log("LEFT to "+(currentColumn-1));
-            if (currentColumn > 0)
-            {
-                currentColumn = currentColumn - 1;
-                target = columns[currentColumn].transform.position.x;
-                movement = transform.DOMoveX(target, speed);
-            }
-
+            Left();
         }
 
 
         if (Input.GetKeyDown("down") && !movement.IsActive())
         {
-            if (!sequence.CheckLimit()) {//check we're not over limit
-                return;
-            }
+            Down();
+        }
 
-            GameObject currentMachine = columns[currentColumn];
-            MachineScript currentMachineScript = currentMachine.GetComponent<MachineScript>();
-            //Debug.Log("MACHINECSRIPTNULL?? "+currentMachineScript);
-            bool dropoff = false;
-            Transform slot;
-            
-            if (holding)
+    }
+
+    public void Right()
+    {
+        //Debug.Log("RIGHT to "+ (currentColumn+1));
+        if (currentColumn < columns.Length - 1)
+        {
+            currentColumn = currentColumn + 1;
+            target = columns[currentColumn].transform.position.x;
+            movement = transform.DOMoveX(target, speed);
+        }
+    }
+
+    public void Left()
+    {
+        //Debug.Log("LEFT to "+(currentColumn-1));
+        if (currentColumn > 0)
+        {
+            currentColumn = currentColumn - 1;
+            target = columns[currentColumn].transform.position.x;
+            movement = transform.DOMoveX(target, speed);
+        }
+    }
+
+    public void Down()
+    {
+        if (!sequence.CheckLimit())
+        {//check we're not over limit
+            return;
+        }
+
+        GameObject currentMachine = columns[currentColumn];
+        MachineScript currentMachineScript = currentMachine.GetComponent<MachineScript>();
+        //Debug.Log("MACHINECSRIPTNULL?? "+currentMachineScript);
+        bool dropoff = false;
+        Transform slot;
+
+        if (holding)
+        {
+            slot = currentMachineScript.CanInsert();
+            dropoff = true;
+        }
+        else
+        {
+            //Debug.Log("CurrentMachineScript "+currentMachineScript);
+            if (currentMachineScript.CanRemove())
             {
-                slot = currentMachineScript.CanInsert();
-                dropoff = true;
+                slot = currentMachineScript.CanRemove().transform;
             }
             else
             {
-                //Debug.Log("CurrentMachineScript "+currentMachineScript);
-                if (currentMachineScript.CanRemove())
-                {
-                    slot = currentMachineScript.CanRemove().transform;
-                }
-                else
-                {
-                    slot = null;
-                }
-            }
-            //Debug.Log("Dropping off? "+dropoff);
-            if (dropoff && slot) //putting down a number into an empty slot
-            {
-                target = slot.position.y;
-                float startY = transform.position.y;
-                movement = transform.DOMoveY(target, speed);//.DOMoveY(startY, speed);
-                movement.OnComplete(() =>
-                {
-                    //using this temp allows the machine to change what we're holding
-                    //NumberScript tempHolding = holding;
-                    currentMachineScript.Insert(holding);
-                    movement = transform.DOMoveY(startY, speed);
-                });
-
-                sequence.AddStep(currentMachineScript.gameObject.GetComponent<MachineLabel>());
-            }
-            else if( slot ) { //picking up a number from a slot
-                target = slot.position.y;
-                float startY = transform.position.y;
-                movement = transform.DOMoveY(target, speed);//.DOMoveY(startY, speed);
-
-                //get the number
-                movement.OnComplete(() => { holding = currentMachineScript.Remove(transform); movement = transform.DOMoveY(startY, speed); });
-                sequence.AddStep(currentMachineScript.gameObject.GetComponent<MachineLabel>());
-            }
-            else //no number held, no number in slot
-            {
-
+                slot = null;
             }
         }
+        //Debug.Log("Dropping off? "+dropoff);
+        if (dropoff && slot) //putting down a number into an empty slot
+        {
+            target = slot.position.y;
+            float startY = transform.position.y;
+            movement = transform.DOMoveY(target, speed);//.DOMoveY(startY, speed);
+            movement.OnComplete(() =>
+            {
+                //using this temp allows the machine to change what we're holding
+                //NumberScript tempHolding = holding;
+                currentMachineScript.Insert(holding);
+                movement = transform.DOMoveY(startY, speed);
+            });
 
+            sequence.AddStep(currentMachineScript.gameObject.GetComponent<MachineLabel>());
+        }
+        else if (slot)
+        { //picking up a number from a slot
+            target = slot.position.y;
+            float startY = transform.position.y;
+            movement = transform.DOMoveY(target, speed);//.DOMoveY(startY, speed);
+
+            //get the number
+            movement.OnComplete(() => { holding = currentMachineScript.Remove(transform); movement = transform.DOMoveY(startY, speed); });
+            sequence.AddStep(currentMachineScript.gameObject.GetComponent<MachineLabel>());
+        }
+        else //no number held, no number in slot
+        {
+
+        }
+    }
+
+    public IEnumerable GoToMachine(MachineLabel label)
+    {
+        int direction = manager.GetDirection(label, currentColumn);
+        if(direction == 0)
+        {
+            Down();
+        }
+        else if(direction == -1)
+        {
+            Left();
+            yield return new WaitForSeconds(speed);
+            GoToMachine(label);
+        }
+        else if (direction == 1)
+        {
+            Right();
+            yield return new WaitForSeconds(speed);
+            GoToMachine(label);
+        }
     }
 }
