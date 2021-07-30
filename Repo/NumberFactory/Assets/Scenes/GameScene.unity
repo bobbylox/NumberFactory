@@ -1014,7 +1014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5d3c1f7bb6b44e18408f79825d9f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 7
+  number: 3
   cam: {fileID: 519420031}
   hideNumber: 0
 --- !u!212 &519565279
@@ -1975,7 +1975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5d3c1f7bb6b44e18408f79825d9f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 4
+  number: 2
   cam: {fileID: 519420031}
   hideNumber: 0
 --- !u!212 &1243946361
