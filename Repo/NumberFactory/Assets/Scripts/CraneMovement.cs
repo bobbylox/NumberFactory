@@ -55,6 +55,10 @@ public class CraneMovement : MonoBehaviour
         if (currentColumn < columns.Length - 1)
         {
             currentColumn = currentColumn + 1;
+            while (!columns[currentColumn].gameObject.activeSelf)
+            {
+                currentColumn = currentColumn + 1;
+            }
             target = columns[currentColumn].transform.position.x;
             movement = transform.DOMoveX(target, speed);
         }
@@ -66,6 +70,10 @@ public class CraneMovement : MonoBehaviour
         if (currentColumn > 0)
         {
             currentColumn = currentColumn - 1;
+            while (!columns[currentColumn].gameObject.activeSelf)
+            {
+                currentColumn = currentColumn - 1;
+            }
             target = columns[currentColumn].transform.position.x;
             movement = transform.DOMoveX(target, speed);
         }

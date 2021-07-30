@@ -6,7 +6,6 @@ public class NumberScript : MonoBehaviour
 {
     public int number;
     public Camera cam;
-    int myColumn = 0; // -1 means it's being held by the crane
     public bool hideNumber = false;
     Vector3 startScale;
 
