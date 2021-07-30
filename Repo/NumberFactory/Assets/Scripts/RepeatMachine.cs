@@ -28,13 +28,18 @@ public class RepeatMachine : MonoBehaviour
         timesToRepeat = (int)machine.inputs[0].number;
         if(timesToRepeat > 1)
         {
-            machine.inputs.Remove(machine.inputs[0]);
+            NumberScript repeatNum = machine.inputs[0];
+            machine.inputs.Remove(repeatNum);
+            Destroy(repeatNum.gameObject);
             timesToRepeat = timesToRepeat - 1;
+            Debug.Log("Attempting to Repeat");
+            DoAgain();
         }
         else
         {
-            machine.inputs.Remove(machine.inputs[0]);
-            DoAgain();
+            NumberScript repeatNum = machine.inputs[0];
+            machine.inputs.Remove(repeatNum);
+            Destroy(repeatNum.gameObject);
         }
     }
 
@@ -61,8 +66,8 @@ public class RepeatMachine : MonoBehaviour
         //repeat actions until timesToRepeat == 0
         //while (timesToRepeat>0)
         //{
-
-            crane.GoToMachine(sequence.machineSteps[sequenceStartPosition]);
+        Debug.Log("Start:"+sequenceStartPosition+" End:"+sequenceEndPosition);
+        crane.GoToMachine(sequence.machineSteps[sequenceStartPosition]);
         //}
     }
 }

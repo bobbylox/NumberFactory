@@ -141,8 +141,9 @@ public class CraneMovement : MonoBehaviour
         }
     }
 
-    public IEnumerable GoToMachine(MachineLabel label)
+    public void GoToMachine(MachineLabel label)
     {
+        Debug.Log("Going to machine "+label.label_text);
         int direction = manager.GetDirection(label, currentColumn);
         if(direction == 0)
         {
@@ -151,14 +152,16 @@ public class CraneMovement : MonoBehaviour
         else if(direction == -1)
         {
             Left();
-            yield return new WaitForSeconds(speed);
-            GoToMachine(label);
+            //yield return new WaitForSeconds(speed);
+            //GoToMachine(label);
         }
         else if (direction == 1)
         {
             Right();
-            yield return new WaitForSeconds(speed);
-            GoToMachine(label);
+            //yield return new WaitForSeconds(speed);
+            //GoToMachine(label);
         }
     }
+
+
 }
