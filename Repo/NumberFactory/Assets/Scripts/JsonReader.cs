@@ -16,7 +16,7 @@ public class JsonReader : MonoBehaviour
         Debug.Log(levelString);
         //string strResultJson = JsonConvert.SerializeObject(myObject);
         levelsManager = JsonUtility.FromJson<LevelsManager>(levelString);
-        Debug.Log(levelsManager.levels[0].number);
+        Debug.Log(levelsManager.levels);//.number);
     }
 }
 

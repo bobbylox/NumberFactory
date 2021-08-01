@@ -4,5 +4,5 @@ using System.Collections.Generic;
 public class LevelsManager 
 {
     public int currentLevel;
-    public List<LevelObject> levels;
+    public List<object> levels;
 }
