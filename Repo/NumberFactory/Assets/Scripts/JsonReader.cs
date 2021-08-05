@@ -6,19 +6,39 @@ using System.IO;
 public class JsonReader : MonoBehaviour
 {
     [SerializeField]
-    public LevelsManager levelsManager;
+    public LevelsObject levelsObject = new LevelsObject();
+    public LevelsManager levelsManager = new LevelsManager();
+    public MachineManagerScript crane;
 
     void Start()
     {
-        string path = "Assets/Levels.json";
+        string path = "Assets/currentLevel.json";
         StreamReader reader = new StreamReader(path);
         string levelString = reader.ReadToEnd();
-        Debug.Log(levelString);
-        //string strResultJson = JsonConvert.SerializeObject(myObject);
         levelsManager = JsonUtility.FromJson<LevelsManager>(levelString);
-        Debug.Log(levelsManager.levels);//.number);
+
+
+
+        path = "Assets/Level"+levelsManager.currentLevel+".json";
+        reader = new StreamReader(path);
+        levelString = reader.ReadToEnd();
+        levelsObject = JsonUtility.FromJson<LevelsObject>(levelString);
+        InitLevel(levelsObject);
+    }
+    void InitLevel(LevelsObject levelsObject)
+    {
+        for(int i = 0; i < crane.columns.Length; i++)
+        {
+            GameObject currentMachine = crane.columns[i];
+            MachineLabel currentLabel = currentMachine.GetComponent<MachineLabel>();
+            if (!levelsObject.machines.Contains(currentLabel.label_text))
+            {
+                currentMachine.SetActive(false);
+            }
+        }
     }
 }
+
 
 
 

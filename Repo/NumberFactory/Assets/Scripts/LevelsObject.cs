@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-
-public class LevelObject
+using UnityEngine;
+using System.IO;
+public class LevelsObject
 {
     public int number;
     public List<string> machines;
