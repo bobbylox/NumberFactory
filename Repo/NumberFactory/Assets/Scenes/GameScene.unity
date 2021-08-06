@@ -1841,6 +1841,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crane: {fileID: 932500864}
+  output: {fileID: 1437917962}
+  input: {fileID: 194599741}
+  sequence: {fileID: 1451153983}
 --- !u!4 &858637179
 Transform:
   m_ObjectHideFlags: 0
@@ -2304,6 +2307,7 @@ MonoBehaviour:
   expecting: 5
   machine: {fileID: 1437917961}
   cam: {fileID: 519420031}
+  levels: {fileID: 858637178}
 --- !u!1 &1451153981
 GameObject:
   m_ObjectHideFlags: 0

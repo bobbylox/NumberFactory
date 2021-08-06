@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OutputMachineScript : MonoBehaviour
 {
@@ -8,13 +9,15 @@ public class OutputMachineScript : MonoBehaviour
     public int expecting;
     public MachineScript machine;
     public Camera cam;
+    public JsonReader levels;
 
     public void EndLevelIfMatch()
     {
         Debug.Log("EndLevelIfMatch function called");
         if(machine.inputs[0].number == expecting)
         {
-            Debug.Log("YOU WIN!");
+            levels.IncrementCurrentLevel();
+            SceneManager.LoadScene("GameScene");
         }
     }
 

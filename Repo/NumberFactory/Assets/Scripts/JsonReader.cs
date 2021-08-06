@@ -9,17 +9,20 @@ public class JsonReader : MonoBehaviour
     public LevelsObject levelsObject = new LevelsObject();
     public LevelsManager levelsManager = new LevelsManager();
     public MachineManagerScript crane;
+    public OutputMachineScript output;
+    public MachineScript input;
+    public SequenceScript sequence;
+
+    string pathToCurrentLevel = "Assets/LevelData/currentLevel.json";
 
     void Start()
     {
-        string path = "Assets/currentLevel.json";
+        string path = pathToCurrentLevel;
         StreamReader reader = new StreamReader(path);
         string levelString = reader.ReadToEnd();
         levelsManager = JsonUtility.FromJson<LevelsManager>(levelString);
 
-
-
-        path = "Assets/Level"+levelsManager.currentLevel+".json";
+        path = "Assets/LevelData/Level"+levelsManager.currentLevel+".json";
         reader = new StreamReader(path);
         levelString = reader.ReadToEnd();
         levelsObject = JsonUtility.FromJson<LevelsObject>(levelString);
@@ -27,6 +30,7 @@ public class JsonReader : MonoBehaviour
     }
     void InitLevel(LevelsObject levelsObject)
     {
+        // Initializing active machines
         for(int i = 0; i < crane.columns.Length; i++)
         {
             GameObject currentMachine = crane.columns[i];
@@ -36,6 +40,43 @@ public class JsonReader : MonoBehaviour
                 currentMachine.SetActive(false);
             }
         }
+        //Initialize output
+        output.expecting = levelsObject.output;
+
+        //Inputs
+        if(levelsObject.inputs.Count > 1)
+        {
+            input.inputs[0].number = levelsObject.inputs[0];
+            input.inputs[1].number = levelsObject.inputs[1];
+        }
+        else if(levelsObject.inputs.Count == 1)
+        {
+            input.inputs[0].number = levelsObject.inputs[0];
+
+            NumberScript numToRemove = input.inputs[1];
+            input.inputs.Remove(numToRemove);
+            Destroy(numToRemove.gameObject);
+        }
+        else
+        {
+            //throw error
+        }
+
+        //Sequence Limit
+        sequence.limit = (uint)levelsObject.sequenceLimit;
+    }
+
+    public void SetCurrentLevel(uint newCurrentLevel)
+    {
+        levelsManager.currentLevel = (int)newCurrentLevel;
+
+        string currentLevelJSON = JsonUtility.ToJson(levelsManager);
+        File.WriteAllText(pathToCurrentLevel,currentLevelJSON);
+    }
+
+    public void IncrementCurrentLevel()
+    {
+        SetCurrentLevel((uint)levelsManager.currentLevel + 1);
     }
 }
 

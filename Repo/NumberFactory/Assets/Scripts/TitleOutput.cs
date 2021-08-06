@@ -12,7 +12,7 @@ public class TitleOutput : MonoBehaviour
 
     public void EndLevelIfMatch()
     {
-        Debug.Log("EndLevelIfMatch function called");
+        //Debug.Log("EndLevelIfMatch function called");
         if(machine.inputs[0].number == expecting)
         {
             SceneManager.LoadScene("GameScene");
