@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class CraneMovement : MonoBehaviour
 {
@@ -83,7 +84,8 @@ public class CraneMovement : MonoBehaviour
     {
         if (!sequence.CheckLimit())
         {//check we're not over limit
-            return;
+            //If we're over the limit, reset the scene
+            SceneManager.LoadScene("GameScene");
         }
 
         GameObject currentMachine = columns[currentColumn];

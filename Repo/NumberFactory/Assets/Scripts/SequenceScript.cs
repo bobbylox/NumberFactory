@@ -55,5 +55,6 @@ public class SequenceScript : MonoBehaviour
     void OnGUI()
     {
         GUI.Label(new Rect(screen_coords.x, screen_coords.y, 1000, 50), stepsString);
+        GUI.Label(new Rect(screen_coords.x, screen_coords.y+40, 1000, 50), limit-machineSteps.Count+" Moves Remaining");
     }
 }
