@@ -10,12 +10,14 @@ public class OutputMachineScript : MonoBehaviour
     public MachineScript machine;
     public Camera cam;
     public JsonReader levels;
+    public CraneMovement crane;
 
     public void EndLevelIfMatch()
     {
         Debug.Log("EndLevelIfMatch function called");
         if(machine.inputs[0].number == expecting)
         {
+            crane.AbortMovement();
             levels.IncrementCurrentLevel();
             SceneManager.LoadScene("GameScene");
         }

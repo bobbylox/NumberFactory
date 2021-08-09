@@ -20,7 +20,7 @@ public class AdditionMachineScript : MonoBehaviour
             nextNumber = machine.inputs[1];
             number.transform.DOScale(0f, 0.5f).OnComplete(SwapNumber);
             nextNumber.transform.DOScale(0f, 0.5f);
-            Debug.Log("Addition");
+            //Debug.Log("Addition");
         }
 
 
@@ -28,9 +28,9 @@ public class AdditionMachineScript : MonoBehaviour
 
     void SwapNumber()
     {
-        Debug.Log("DEBUG " + number.number + ", ");
+        //Debug.Log("DEBUG " + number.number + ", " + nextNumber.GetStartScale());
         number.number = nextNumber.number + number.number;
-        number.transform.DOScale(number.GetStartScale(), 0.5f);
+        number.transform.DOScale(nextNumber.GetStartScale(), 0.5f);
         machine.inputs.Remove(nextNumber);
         Destroy(nextNumber.gameObject);
     }

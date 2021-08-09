@@ -7,9 +7,9 @@ public class NumberScript : MonoBehaviour
     public int number;
     public Camera cam;
     public bool hideNumber = false;
-    Vector3 startScale;
+    public Vector3 startScale;
 
-    void Start()
+    void Awake()
     {
         startScale = transform.localScale;
     }
@@ -28,5 +28,10 @@ public class NumberScript : MonoBehaviour
     public Vector3 GetStartScale()
     {
         return startScale;
+    }
+
+    public void SetStartScale(Vector3 newStartScale) {
+        //Debug.Log("Setting Start Scale to "+newStartScale);
+        startScale = newStartScale;
     }
 }

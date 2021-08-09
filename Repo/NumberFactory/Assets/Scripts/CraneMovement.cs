@@ -165,5 +165,10 @@ public class CraneMovement : MonoBehaviour
         }
     }
 
+    public void AbortMovement()
+    {
+        movement.Kill();
+    }
+
 
 }

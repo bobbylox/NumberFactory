@@ -2692,6 +2692,7 @@ MonoBehaviour:
   machine: {fileID: 1437917961}
   cam: {fileID: 519420031}
   levels: {fileID: 858637178}
+  crane: {fileID: 932500863}
 --- !u!1 &1451153981
 GameObject:
   m_ObjectHideFlags: 0
