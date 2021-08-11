@@ -1,7 +1,7 @@
 {
 	"number": 8,
 	"machines": [ "I", "O", "+", "D", "-" ],
-	"inputs": [ 2, 3 ],
-	"output": 7,
-	"sequenceLimit": 14
+	"inputs": [ 7, 11 ],
+	"output": 3,
+	"sequenceLimit": 13
 }
