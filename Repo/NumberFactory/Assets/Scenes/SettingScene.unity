@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1194,8 +1194,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -484.6, y: 201.9}
-  m_SizeDelta: {x: 100, y: 133}
+  m_AnchoredPosition: {x: -400.78, y: 167.8}
+  m_SizeDelta: {x: 77.44, y: 95.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1718590842
 MonoBehaviour:
@@ -1206,7 +1206,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1718590840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b7ecbd36845a541b66332810f5fce5, type: 3}
+  m_Script: {fileID: 11500000, guid: a42659adff32141ce9f1b63a593a52ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1718590843
@@ -1255,14 +1255,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1718590842}
         m_TargetAssemblyTypeName: BackScript, Assembly-CSharp
-        m_MethodName: BackButton
-        m_Mode: 5
+        m_MethodName: BackToLastScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: TitleScene
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1718590844
