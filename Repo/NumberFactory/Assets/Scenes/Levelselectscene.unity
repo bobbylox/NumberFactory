@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 42897447}
   - component: {fileID: 42897446}
   m_Layer: 5
-  m_Name: Level 8
+  m_Name: 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 271041287}
   - component: {fileID: 271041286}
   m_Layer: 5
-  m_Name: Level 4
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -547,7 +547,7 @@ GameObject:
   - component: {fileID: 320838879}
   - component: {fileID: 320838878}
   m_Layer: 5
-  m_Name: Level 2
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -759,7 +759,7 @@ GameObject:
   - component: {fileID: 602570543}
   - component: {fileID: 602570542}
   m_Layer: 5
-  m_Name: Level 6
+  m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -892,7 +892,7 @@ GameObject:
   - component: {fileID: 641017161}
   - component: {fileID: 641017160}
   m_Layer: 5
-  m_Name: Level 7
+  m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1249,7 +1249,7 @@ GameObject:
   - component: {fileID: 869386601}
   - component: {fileID: 869386600}
   m_Layer: 5
-  m_Name: Level 3
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1398,6 +1398,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f341a1f56e2b4ebfffd4ab2ab85a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelButtons:
+  - {fileID: 1265209420}
+  - {fileID: 1877685387}
+  - {fileID: 320838878}
+  - {fileID: 869386600}
+  - {fileID: 271041286}
+  - {fileID: 1678837063}
+  - {fileID: 602570542}
+  - {fileID: 641017160}
+  - {fileID: 42897446}
+  currentLevel: 0
 --- !u!4 &1048889163
 Transform:
   m_ObjectHideFlags: 0
@@ -1425,7 +1436,7 @@ GameObject:
   - component: {fileID: 1265209421}
   - component: {fileID: 1265209420}
   m_Layer: 5
-  m_Name: Level 0
+  m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1766,7 +1777,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1557380589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b7ecbd36845a541b66332810f5fce5, type: 3}
+  m_Script: {fileID: 11500000, guid: a42659adff32141ce9f1b63a593a52ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1678837061
@@ -1782,7 +1793,7 @@ GameObject:
   - component: {fileID: 1678837064}
   - component: {fileID: 1678837063}
   m_Layer: 5
-  m_Name: Level 5
+  m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2345,7 +2356,7 @@ GameObject:
   - component: {fileID: 1877685388}
   - component: {fileID: 1877685387}
   m_Layer: 5
-  m_Name: Level 1
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

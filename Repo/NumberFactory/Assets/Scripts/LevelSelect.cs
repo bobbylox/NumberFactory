@@ -3,10 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
+using UnityEngine.UI;
 
 public class LevelSelect : MonoBehaviour
 {
-    public LevelsManager levelsManager = new LevelsManager();
+    public List<Button> levelButtons;
+    public LevelsManager levelsManager;
+    public int currentLevel;
+    string pathToCurrentLevel = "Assets/LevelData/currentLevel.json";
+
+    void Start()
+    {
+        StreamReader reader = new StreamReader(pathToCurrentLevel);
+        string levelString = reader.ReadToEnd();
+        levelsManager = JsonUtility.FromJson<LevelsManager>(levelString);
+        currentLevel = levelsManager.currentLevel;
+
+        foreach(Button levelButton in levelButtons)
+        {
+            if (int.Parse(levelButton.gameObject.name) > currentLevel)
+            {
+                levelButton.interactable = false;
+            }
+        }
+    }
     public void LoadLevels (int levelNumber)
     {
         SceneManager.LoadScene("GameScene");
