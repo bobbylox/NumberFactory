@@ -1,1 +1,7 @@
-{"{\n\t\"number\": 10,\n\t\"machines\": [ \"I\", \"O\", \"-\", \"D\", ],\n\t\"inputs\": [ 3, 8],\n\t\"output\": -10,\n\t\"sequenceLimit\": 18\n}": null}
+{
+	"number": 10,
+	"machines": [ "I", "O", "+", "D", "-"],
+	"inputs": [ 3, 8],
+	"output": -10,
+	"sequenceLimit": 18
+}
