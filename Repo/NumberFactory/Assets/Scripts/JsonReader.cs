@@ -20,11 +20,16 @@ public class JsonReader : MonoBehaviour
         string path = pathToCurrentLevel;
         StreamReader reader = new StreamReader(path);
         string levelString = reader.ReadToEnd();
+        if (levelString == "")
+        {
+            levelString = "{'currentLevel':0}";
+        }
+        reader.Close();
         levelsManager = JsonUtility.FromJson<LevelsManager>(levelString);
-
         path = "Assets/LevelData/Level"+levelsManager.currentLevel+".json";
         reader = new StreamReader(path);
         levelString = reader.ReadToEnd();
+        reader.Close();
         levelsObject = JsonUtility.FromJson<LevelsObject>(levelString);
         InitLevel(levelsObject);
     }

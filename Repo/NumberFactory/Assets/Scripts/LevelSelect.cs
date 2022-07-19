@@ -16,6 +16,7 @@ public class LevelSelect : MonoBehaviour
     {
         StreamReader reader = new StreamReader(pathToCurrentLevel);
         string levelString = reader.ReadToEnd();
+        reader.Close();
         levelsManager = JsonUtility.FromJson<LevelsManager>(levelString);
         currentLevel = levelsManager.currentLevel;
 
