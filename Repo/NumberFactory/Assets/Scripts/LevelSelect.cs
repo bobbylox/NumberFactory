@@ -25,6 +25,7 @@ public class LevelSelect : MonoBehaviour
             if (int.Parse(levelButton.gameObject.name) > currentLevel)
             {
                 levelButton.interactable = false;
+                //devloper mode change false to true.
             }
         }
     }

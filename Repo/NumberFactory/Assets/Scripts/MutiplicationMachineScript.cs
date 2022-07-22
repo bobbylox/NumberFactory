@@ -12,6 +12,8 @@ public class MutiplicationMachineScript : MonoBehaviour
     NumberScript number2;
     int number1;
     int newNumber;
+    public float gravity = -9.81f;
+    float velocity;
     public void Mutiplication()
     {
         if (machine.inputs.Count > 1)
@@ -20,8 +22,8 @@ public class MutiplicationMachineScript : MonoBehaviour
             number2 = machine.inputs[1];
             number1 = (int) number2.number;
            newNumber = (int)number.number * number1;
-            number.transform.DOScale(0f, 0.5f).OnComplete(SwapNumber);
-            number2.transform.DOScale(0f, 0.5f);
+            number.transform.DOMove(machine.gameObject.transform.position, 0.5f).OnComplete(SwapNumber);
+            number2.transform.DOMove(machine.gameObject.transform.position, 0.5f);
             Debug.Log("Multiplication");
         }
 
@@ -32,7 +34,7 @@ public class MutiplicationMachineScript : MonoBehaviour
     {
         Debug.Log("DEBUG " + number.number + ", ");
         number.number = newNumber;
-        number.transform.DOScale(number.GetStartScale(), 0.5f);
+        number.transform.DOMove(machine.slots[0].position, 0.5f);
         machine.inputs.Remove(number2);
         Destroy(number2.gameObject);
     }

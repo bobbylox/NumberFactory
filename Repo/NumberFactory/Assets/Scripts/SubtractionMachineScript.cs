@@ -16,7 +16,7 @@ public class SubtractionMachineScript : MonoBehaviour
         {
             number = machine.inputs[0];
             int newNumber = (int)-number.number;
-            number.transform.DOScale(0f, 0.5f).OnComplete(SwapNumber);
+            number.transform.DOMove(machine.gameObject.transform.position, 0.5f).OnComplete(SwapNumber);
             Debug.Log("subtraction");
         }
     }
@@ -25,6 +25,6 @@ public class SubtractionMachineScript : MonoBehaviour
     {
         Debug.Log("DEBUG "+number.number + ", ");
         number.number = (int)-number.number;
-        number.transform.DOScale(number.GetStartScale(), 0.5f);
+        number.transform.DOMove(machine.slots[0].position, 0.5f);
     }
 }
