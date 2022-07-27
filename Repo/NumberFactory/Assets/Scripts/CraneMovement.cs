@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class CraneMovement : MonoBehaviour
 {
     Tween movement;
-    public float speed = 0.2f;
+    public float speed = 0.01f;
     float target;
 
     GameObject[] columns;
@@ -32,20 +32,21 @@ public class CraneMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("right") && !movement.IsActive())//!moving_down && !moving_left && !moving_right)
+        if (Input.GetKeyDown("right"))//!moving_down && !moving_left && !moving_right)
         {
             Right();
         }
 
-        if (Input.GetKeyDown("left") && !movement.IsActive())
+        if (Input.GetKeyDown("left"))
         {
             Left();
         }
 
 
-        if (Input.GetKeyDown("down") && !movement.IsActive())
+        if (Input.GetKeyDown("down"))
         {
             Down();
+
         }
 
     }
@@ -53,6 +54,10 @@ public class CraneMovement : MonoBehaviour
     public void Right()
     {
         //Debug.Log("RIGHT to "+ (currentColumn+1));
+         if (movement.IsActive())
+        {
+            return;
+        }
         if (currentColumn < columns.Length - 1)
         {
             currentColumn = currentColumn + 1;
@@ -68,6 +73,10 @@ public class CraneMovement : MonoBehaviour
     public void Left()
     {
         //Debug.Log("LEFT to "+(currentColumn-1));
+        if (movement.IsActive())
+        {
+            return;
+        }
         if (currentColumn > 0)
         {
             currentColumn = currentColumn - 1;
@@ -82,6 +91,10 @@ public class CraneMovement : MonoBehaviour
 
     public void Down()
     {
+        if (movement.IsActive())
+        {
+            return;
+        }
         if (!sequence.CheckLimit())
         {//check we're not over limit
             //If we're over the limit, reset the scene
