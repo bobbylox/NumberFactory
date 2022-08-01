@@ -3,6 +3,6 @@
 	"machines": [ "I", "O", "+", "D", "-", "x"],
 	"inputs": [ 2, 3],
 	"output": 13,
-	"sequenceLimit": 21
+	"sequenceLimit": 16
 
 }
