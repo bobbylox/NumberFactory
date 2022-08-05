@@ -3,5 +3,5 @@
 	"machines": [ "I", "O", "+", "D", "÷2"],
 	"inputs": [ 6, 2],
 	"output": 7,
-	"sequenceLimit": 13
+	"sequenceLimit": 8
 }
