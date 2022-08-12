@@ -16,7 +16,10 @@ public class CraneMovement : MonoBehaviour
     public NumberScript holding;
 
     public SequenceScript sequence;
+    private Claw claw;
     
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,7 @@ public class CraneMovement : MonoBehaviour
         currentColumn = manager.getNearestMachine(transform.position);
         Debug.Log("CURRENT COLUMN = "+currentColumn);
         movement = transform.DOMove(transform.position, 0);
+        claw = GetComponent<Claw>();
     }
 
     // Update is called once per frame
@@ -147,7 +151,12 @@ public class CraneMovement : MonoBehaviour
             movement = transform.DOMoveY(target, speed);//.DOMoveY(startY, speed);
 
             //get the number
-            movement.OnComplete(() => { holding = currentMachineScript.Remove(transform); movement = transform.DOMoveY(startY, speed); });
+            movement.OnComplete(() => { 
+                holding = currentMachineScript.Remove(transform); 
+                movement = transform.DOMoveY(startY, speed);
+                Debug.Log("Closing Claw");
+                claw.Close();
+            });
             sequence.AddStep(currentMachineScript.gameObject.GetComponent<MachineLabel>());
         }
         else //no number held, no number in slot
